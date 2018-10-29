@@ -10,10 +10,12 @@ services:
   - docker
 
 before_install:
+  - pwd
   - sudo /etc/init.d/mysql stop
   - sudo apt-get update
   - git clone https://github.com/FAForever/faf-stack.git faf-stack
   - pushd faf-stack
+  - pwd
   - git checkout 6c09957b6671980b4d1ad0016bd2316d75cfffeb
   - cp .env.template .env
   - cp -r config.template config
@@ -21,9 +23,11 @@ before_install:
   - wget https://raw.githubusercontent.com/FAForever/db/`grep -oP 'faforever/faf-db-migrations:\K(.*)$' ./docker-compose.yml`/test-data.sql
   - docker exec -i faf-db mysql -uroot -pbanana faf < test-data.sql
   - popd
+  - pwd
   - python -m pip install coveralls
 
 install:
+  - pwd
   - cp faf-server.example.pem faf-server.pem
   - docker build -t faf-python-server .
 
