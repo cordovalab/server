@@ -12,10 +12,10 @@ master|develop
 
 Install [docker](https://www.docker.com).
 
-Follow the steps to get [faf-db](https://github.com/FAForever/db) setup, the following assumes the db container is called `faf-db` and the database is called `faf` and the root password ist `banana`.
+Follow the setup instructions for [faf-db](https://github.com/FAForever/db). The following assumes the db container is called `faf-db` and the database is called `faf` and the root password is `banana`.
 
 
-The server needs an RSA key to decode uniqueid messages, we've provided an example key in the repo as `faf-server.example.pem`. The server expects this to be named `faf-server.pem` at runtime, so first copy this
+The server needs an RSA key to decode uniqueid messages. There is an example key in the repo as `faf-server.example.pem`. The server expects this to be named `faf-server.pem` at runtime, so first copy this
 
     cp faf-server.example.pem faf-server.pem
 
@@ -28,7 +28,7 @@ Check if the container is running with
 
     docker ps
 
-If you cannot find `faf-server`in the list, run `docker run` without `-d` to see what happen.
+If you cannot find `faf-server`in the list, run `docker run` without `-d` to see what happens.
 
 If you have a different root password, database name then the default (see [config.py](https://github.com/FAForever/server/blob/develop/server/config.py#L43)), you must pass it over the environment parameter of docker, e.g.
 
